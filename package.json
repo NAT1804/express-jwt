@@ -1,0 +1,33 @@
+{
+  "name": "express-jwt",
+  "version": "1.0.0",
+  "description": "Server Node.JS using Express that supports JWT ans works with MySQL database",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NAT1804/express-jwt.git"
+  },
+  "keywords": [
+    "Express",
+    "JWT"
+  ],
+  "author": "NAT1804",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NAT1804/express-jwt/issues"
+  },
+  "homepage": "https://github.com/NAT1804/express-jwt#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-session": "^2.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mysql2": "^3.3.3",
+    "sequelize": "^6.31.1"
+  }
+}
