@@ -2,6 +2,8 @@ import express from "express";
 import cors from "cors";
 import cookieSession from "cookie-session";
 import db from './app/db'
+import authRoutes from "./app/routes/auth.routes";
+import userRoutes from "./app/routes/user.routes";
 
 const app = express();
 
@@ -46,8 +48,12 @@ app.use(
 );
 
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to express jwt app." });
+  res.json({ message: "Welcome to express jwt api" });
 });
+
+// routes
+authRoutes(app);
+userRoutes(app);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
