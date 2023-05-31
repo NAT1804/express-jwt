@@ -1,5 +1,5 @@
-import * as verifySignUp from "./verifySignUp"
-import * as authJwt from './authJwt'
+import * as verifySignUp from "./verifySignUp.js"
+import * as authJwt from './authJwt.js'
 
 export default {
   verifySignup,

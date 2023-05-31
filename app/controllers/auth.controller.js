@@ -1,5 +1,5 @@
-import db from "../db";
-import config from "../config/auth.config";
+import db from "../db/index.js";
+import config from "../config/auth.config.js";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 const User = db.user;

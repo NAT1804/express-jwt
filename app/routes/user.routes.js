@@ -1,5 +1,5 @@
-import { authJwt } from "../middleware";
-import * as controller from "../controllers/user.controller";
+import { authJwt } from "../middleware/index.js";
+import * as controller from "../controllers/user.controller.js";
 
 export default function(app) {
   app.use(function(req, res, next) {

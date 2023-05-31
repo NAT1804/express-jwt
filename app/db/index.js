@@ -1,11 +1,13 @@
-import config from "../config/db.config";
-import userModel from "../models/user.model";
-import roleModel from "../models/role.model";
+import config from "../config/db.config.js";
+import userModel from "../models/user.model.js";
+import roleModel from "../models/role.model.js";
 import { Sequelize } from "sequelize";
 
 const sequelize = new Sequelize(config.DB, config.USER, config.PASSWORD, {
   host: config.HOST,
   dialect: config.dialect,
+  port: config.port,
+  operatorsAliases: false,
   pool: {
     max: config.pool.max,
     min: config.pool.min,
