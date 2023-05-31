@@ -19,4 +19,6 @@ export default function (app) {
   app.post("/api/auth/signin", authController.signin);
 
   app.post("/api/auth/signout", authController.signout);
+
+  app.post("/api/auth/refreshtoken", authController.refreshToken);
 }
