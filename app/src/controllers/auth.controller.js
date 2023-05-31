@@ -7,7 +7,7 @@ const Role = db.role;
 
 const Op = db.Sequelize.Op;
 
-export const signup = async (req, res) => {
+const signup = async (req, res) => {
   // Save User to Database
   try {
     const user = await User.create({
@@ -37,7 +37,7 @@ export const signup = async (req, res) => {
   }
 };
 
-export const signin = async (req, res) => {
+const signin = async (req, res) => {
   try {
     const user = await User.findOne({
       where: {
@@ -85,7 +85,7 @@ export const signin = async (req, res) => {
   }
 };
 
-export const signout = async (req, res) => {
+const signout = async (req, res) => {
   try {
     req.session = null;
     return res.status(200).send({
@@ -95,3 +95,11 @@ export const signout = async (req, res) => {
     this.next(err);
   }
 };
+
+const authController = {
+  signin,
+  signout,
+  signup,
+};
+
+export default authController;

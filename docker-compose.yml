@@ -16,7 +16,7 @@ services:
     depends_on:
       - mysqldb
     build:
-      context: .
+      context: ./app
       dockerfile: Dockerfile
     restart: always
     env_file: ./.env

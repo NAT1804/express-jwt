@@ -2,7 +2,7 @@ import db from "../db/index.js";
 const ROLES = db.role;
 const User = db.user;
 
-export const checkDuplicateusernameOrEmail = async (req, res, next) => {
+const checkDuplicateUsernameOrEmail = async (req, res, next) => {
   try {
     let user = User.findOne({
       where: {
@@ -37,7 +37,7 @@ export const checkDuplicateusernameOrEmail = async (req, res, next) => {
   }
 };
 
-export const checkRolesExisted = (req, res, next) => {
+const checkRolesExisted = (req, res, next) => {
   if (req.body.roles) {
     for (let i = 0; i < req.body.roles.length; i++) {
       if (!ROLES.includes(req.body.roles[i])) {
@@ -51,3 +51,10 @@ export const checkRolesExisted = (req, res, next) => {
 
   next();
 };
+
+const verifySignUp = {
+  checkDuplicateUsernameOrEmail,
+  checkRolesExisted,
+};
+
+export default verifySignUp;

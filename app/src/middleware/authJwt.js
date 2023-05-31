@@ -1,9 +1,9 @@
 import jwt from "jsonwebtoken";
 import config from "../config/auth.config.js";
-import db from "../db";
+import db from "../db/index.js";
 const User = db.user;
 
-export const verifyToken = (req, res, next) => {
+const verifyToken = (req, res, next) => {
   let token = req.session.token;
 
   if (!token) {
@@ -23,7 +23,7 @@ export const verifyToken = (req, res, next) => {
   });
 };
 
-export const isAdmin = async (req, res, next) => {
+const isAdmin = async (req, res, next) => {
   try {
     const user = await User.findByPk(req.userId);
     const roles = await user.getRoles();
@@ -44,7 +44,7 @@ export const isAdmin = async (req, res, next) => {
   }
 };
 
-export const isModerator = async (req, res, next) => {
+const isModerator = async (req, res, next) => {
   try {
     const user = await User.findByPk(req.userId);
     const roles = await user.getRoles();
@@ -65,7 +65,7 @@ export const isModerator = async (req, res, next) => {
   }
 };
 
-export const isModeratorOrAdmin = async (req, res, next) => {
+const isModeratorOrAdmin = async (req, res, next) => {
   try {
     const user = await User.findByPk(req.userId);
     const roles = await user.getRoles();
@@ -89,3 +89,12 @@ export const isModeratorOrAdmin = async (req, res, next) => {
     });
   }
 };
+
+const authJwt = {
+  verifyToken,
+  isAdmin,
+  isModerator,
+  isModeratorOrAdmin,
+};
+
+export default authJwt;
