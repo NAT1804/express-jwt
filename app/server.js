@@ -10,10 +10,12 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors({
-  credentials: true,
-  origin: ["http://localhost:4200"]
-}));
+app.use(
+  cors({
+    credentials: true,
+    origin: ["http://localhost:4200", "https://ang-supabase.vercel.app"],
+  })
+);
 
 const Role = db.role;
 
