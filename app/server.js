@@ -50,7 +50,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
   cookieSession({
     name: "express-jwt-session",
-    keys: ["COOKIE_SECRET"], // should use as secret environment variable
+    keys: [process.env.COOKIE_SECRET_KEY],
     httpOnly: true,
   })
 );
