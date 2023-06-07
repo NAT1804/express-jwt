@@ -119,6 +119,8 @@ const refreshToken = async (req, res) => {
       expiresIn: config.jwtExpiration,
     });
 
+    req.session.token = newAccessToken;
+
     return res.status(200).json({
       accessToken: newAccessToken,
       refreshToken: refreshToken.token,
